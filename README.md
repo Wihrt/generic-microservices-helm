@@ -51,6 +51,7 @@ pre-commit install-hooks
 | extraVolumeMounts | list | `[]` |  |
 | extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
+| httproute.enabled | bool | `false` |  |
 | image.args | list | `[]` |  |
 | image.command | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
@@ -65,6 +66,7 @@ pre-commit install-hooks
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
+| initContainers | object | `{}` |  |
 | livenessProbe.enabled | bool | `false` |  |
 | livenessProbe.httpGet.path | string | `"/"` |  |
 | livenessProbe.httpGet.port | string | `"http"` |  |
@@ -103,7 +105,7 @@ pre-commit install-hooks
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| serviceMonitor.enabled | bool | `false` |  |
 | sidecars | list | `[]` |  |
 | terminationGracePeriodSeconds | int | `30` |  |
 | tolerations | list | `[]` |  |
-|  initContainers | object | `{}` |  |

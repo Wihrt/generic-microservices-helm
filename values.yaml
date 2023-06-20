@@ -62,7 +62,6 @@ sealedSecret:
   annotations: {}
   encryptedData: {}
 
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -78,10 +77,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -98,7 +99,8 @@ service:
 ingress:
   enabled: false
   className: ""
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -111,7 +113,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -150,13 +153,15 @@ sidecars: []
 #         containerPort: 1234
 
 ## @param extraVolumeMounts Array to add extra mount
-extraVolumeMounts: []
+extraVolumeMounts:
+  []
   # e.g
   # - mountPath: /cache
   #   name: volume-name
 
 ## @param extraVolumes Array to add extra volumes
-extraVolumes: []
+extraVolumes:
+  []
   # e.g
   # - name: volume-name
   #   persistentVolumeClaim:
@@ -175,3 +180,23 @@ initContainers: {}
 #     envFrom:
 #       - secretRef:
 #           name: some-secret-ref
+
+httproute:
+  enabled: false
+  # gateways:
+  #   - name: internal-gateway
+  #     namespace: kube-system
+  #     listener: k8s-tools-internal-http
+  # hostnames:
+  #   - badge.cicd.solocal.com
+  # rules:
+  #   - matches:
+  #       - path:
+  #           type: PathPrefix
+  #           value: /
+
+serviceMonitor:
+  enabled: false
+  # endpoints:
+  #   - path: /metrics
+  #     port: metrics

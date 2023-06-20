@@ -63,3 +63,11 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "microservice.backendRef" -}}
+- group: ""
+  kind: Service
+  name: {{ include "microservice.name" . }}
+  port: {{ .Values.container.ports.http }}
+  weight: 100
+{{- end -}}
